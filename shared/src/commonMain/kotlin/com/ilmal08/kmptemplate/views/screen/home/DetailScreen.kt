@@ -52,7 +52,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.ilmal08.kmptemplate.data.response.ResultResponse
+import com.ilmal08.kmptemplate.data.model.response.ResultResponse
 import com.ilmal08.kmptemplate.util.formatDateTime
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource

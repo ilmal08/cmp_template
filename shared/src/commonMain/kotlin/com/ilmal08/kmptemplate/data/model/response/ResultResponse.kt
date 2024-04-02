@@ -1,5 +1,7 @@
-package com.ilmal08.kmptemplate.data.response
+package com.ilmal08.kmptemplate.data.model.response
 
+import com.ilmal08.kmptemplate.entity.NewsEntity
+import com.ilmal08.kmptemplate.entity.ResultEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -43,4 +45,26 @@ data class ResultResponse(
     val uri: String,
     @SerialName("url")
     val url: String
-)
+) {
+    fun mapToEntity() = ResultEntity(
+        abstract = abstract,
+        byline = byline,
+        createdDate = createdDate,
+        desFacet = desFacet,
+        geoFacet = geoFacet,
+        itemType = itemType,
+        kicker = kicker,
+        materialTypeFacet = materialTypeFacet,
+        multimediaResponse = multimediaResponse?.map { it.mapToEntity() },
+        orgFacet = orgFacet,
+        perFacet = perFacet,
+        publishedDate = publishedDate,
+        section = section,
+        shortUrl = shortUrl,
+        subsection = subsection,
+        title = title,
+        updatedDate = updatedDate,
+        uri = uri,
+        url = url
+    )
+}

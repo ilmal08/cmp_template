@@ -14,8 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ilmal08.kmptemplate.data.response.ResultResponse
-import io.github.aakira.napier.Napier
+import co.touchlab.kermit.Logger
+import com.ilmal08.kmptemplate.data.model.response.ResultResponse
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 
@@ -29,8 +29,8 @@ fun NewsCard(
             .padding(8.dp)
             .fillMaxWidth()
             .clickable {
-                Napier.i("NEWS CARD CLICKED")
-                Napier.d(data.toString())
+                Logger.d { "NEWS CARD CLICK" }
+                Logger.d { "$data" }
                 onClick()
             },
         shape = RoundedCornerShape(8.dp),

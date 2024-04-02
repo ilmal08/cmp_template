@@ -1,5 +1,6 @@
-package com.ilmal08.kmptemplate.data.response
+package com.ilmal08.kmptemplate.data.model.response
 
+import com.ilmal08.kmptemplate.entity.NewsEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -17,4 +18,13 @@ data class NewsResponse(
     val section: String,
     @SerialName("status")
     val status: String
-)
+) {
+    fun mapToEntity() = NewsEntity(
+        copyright = copyright,
+        lastUpdated = lastUpdated,
+        numResults = numResults,
+        resultResponses = resultResponses.map { it.mapToEntity() },
+        section = section,
+        status = status
+    )
+}

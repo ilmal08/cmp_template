@@ -1,6 +1,6 @@
 package com.ilmal08.kmptemplate.views.state
 
-import com.ilmal08.kmptemplate.data.response.NewsResponse
+import com.ilmal08.kmptemplate.data.model.response.NewsResponse
 
 sealed class NewsState {
     object Loading : NewsState()

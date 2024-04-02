@@ -36,7 +36,6 @@ import com.ilmal08.kmptemplate.views.state.NewsState.Success
 import com.ilmal08.kmptemplate.views.viewmodel.BaseViewModel
 
 class HomeScreen : Screen {
-
     @Composable
     override fun Content() {
         val repository by remember { mutableStateOf(MainRepository()) }

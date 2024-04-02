@@ -1,5 +1,7 @@
-package com.ilmal08.kmptemplate.data.response
+package com.ilmal08.kmptemplate.data.model.response
 
+import com.ilmal08.kmptemplate.entity.MultimediaEntity
+import com.ilmal08.kmptemplate.entity.NewsEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -21,4 +23,15 @@ data class MultimediaResponse(
     val url: String,
     @SerialName("width")
     val width: Int
-)
+) {
+    fun mapToEntity() = MultimediaEntity(
+       caption = caption,
+        copyright = copyright,
+        format = format,
+        height = height,
+        subtype = subtype,
+        type = type,
+        url = url,
+        width = width
+    )
+}

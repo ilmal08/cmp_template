@@ -18,9 +18,7 @@ import com.ilmal08.kmptemplate.views.screen.setting.SettingsTab
 
 @Composable
 fun MainScreen() {
-    TabNavigator(
-        tab = HomeTab
-    ) {
+    TabNavigator(tab = HomeTab) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = {

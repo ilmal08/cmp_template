@@ -54,13 +54,15 @@ kotlin {
             implementation(libs.moko.mvvm)
             implementation(libs.multiplatformSettings)
             implementation(libs.skiko)
-            implementation(libs.napier)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
             implementation(libs.kamel.image)
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.tab)
             implementation(libs.voyager.transition)
             implementation(libs.libres)
             implementation(libs.kotlinx.datetime)
+            implementation(libs.kermit)
 
             api(libs.precompose)
             api(libs.precompose.viewmodel)
@@ -77,6 +79,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.kotlinx.coroutines.android)
+            implementation(libs.koin.android)
         }
 
         iosMain.dependencies {
