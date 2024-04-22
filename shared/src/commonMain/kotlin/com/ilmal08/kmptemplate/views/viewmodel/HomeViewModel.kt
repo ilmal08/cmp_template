@@ -3,7 +3,7 @@ package com.ilmal08.kmptemplate.views.viewmodel
 import cafe.adriel.voyager.core.model.StateScreenModel
 import com.ilmal08.kmptemplate.data.model.ApiResponse
 import com.ilmal08.kmptemplate.data.model.response.NewsResponse
-import com.ilmal08.kmptemplate.data.repository.HomeRepository
+import com.ilmal08.kmptemplate.repository.HomeRepository
 import com.ilmal08.kmptemplate.views.state.BaseState
 import com.ilmal08.kmptemplate.views.state.BaseState.Default
 import com.ilmal08.kmptemplate.views.state.BaseState.Error

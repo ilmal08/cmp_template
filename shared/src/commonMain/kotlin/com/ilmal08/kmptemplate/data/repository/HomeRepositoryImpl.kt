@@ -2,6 +2,7 @@ package com.ilmal08.kmptemplate.data.repository
 
 import com.ilmal08.kmptemplate.data.model.ApiResponse
 import com.ilmal08.kmptemplate.data.model.response.NewsResponse
+import com.ilmal08.kmptemplate.repository.HomeRepository
 import com.ilmal08.kmptemplate.util.Constant
 import com.ilmal08.kmptemplate.util.safeApiCall
 import io.ktor.client.HttpClient

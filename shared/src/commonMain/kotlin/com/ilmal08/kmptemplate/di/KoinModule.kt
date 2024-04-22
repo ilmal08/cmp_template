@@ -1,6 +1,6 @@
 package com.ilmal08.kmptemplate.di
 
-import com.ilmal08.kmptemplate.data.repository.HomeRepository
+import com.ilmal08.kmptemplate.repository.HomeRepository
 import com.ilmal08.kmptemplate.data.repository.HomeRepositoryImpl
 import com.ilmal08.kmptemplate.util.httpClient
 import com.ilmal08.kmptemplate.views.viewmodel.HomeViewModel
