@@ -1,4 +1,4 @@
-package com.ilmal08.kmptemplate.data.repository
+package com.ilmal08.kmptemplate.data.remote
 
 import com.ilmal08.kmptemplate.data.model.ApiResponse
 import com.ilmal08.kmptemplate.data.model.response.NewsResponse
@@ -11,7 +11,7 @@ import io.ktor.client.request.get
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
-class HomeRepositoryImpl(
+class HomeApiImpl(
     private val httpClient: HttpClient
 ) : HomeRepository {
     override suspend fun getNews(): Flow<ApiResponse<NewsResponse>> {

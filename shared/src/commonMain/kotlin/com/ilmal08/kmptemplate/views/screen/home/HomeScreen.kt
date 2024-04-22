@@ -32,7 +32,7 @@ import cafe.adriel.voyager.koin.getScreenModel
 import com.ilmal08.kmptemplate.views.state.BaseState
 import com.ilmal08.kmptemplate.views.viewmodel.HomeViewModel
 
-class Home2 : Screen {
+class HomeScreen : Screen {
     @Composable
     override fun Content() {
         val screenModel = getScreenModel<HomeViewModel>()
