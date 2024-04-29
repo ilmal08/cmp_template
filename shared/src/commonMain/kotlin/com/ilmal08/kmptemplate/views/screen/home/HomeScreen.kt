@@ -32,26 +32,8 @@ import cafe.adriel.voyager.koin.getScreenModel
 import com.ilmal08.kmptemplate.views.state.BaseState
 import com.ilmal08.kmptemplate.views.viewmodel.HomeViewModel
 
-class HomeScreen : Screen {
-    @Composable
-    override fun Content() {
-        val screenModel = getScreenModel<HomeViewModel>()
-        val state by screenModel.state.collectAsState()
-
-        var isHomeNews by remember { mutableStateOf(false) }
-
-        val navigator: Navigator = LocalNavigator.currentOrThrow
-
-        LaunchedEffect(key1 = screenModel) {
-            screenModel.getNews()
-        }
-
-        HomeContent2(screenModel, navigator, state)
-    }
-}
-
 @Composable
-private fun HomeContent2(
+fun HomeContent2(
     screenModel: HomeViewModel,
     navigator: Navigator,
     state: BaseState

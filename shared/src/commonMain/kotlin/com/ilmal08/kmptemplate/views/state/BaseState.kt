@@ -1,8 +1,8 @@
 package com.ilmal08.kmptemplate.views.state
 
 sealed class BaseState {
-    object Init : BaseState()
-    object Loading : BaseState()
-    object Error : BaseState()
-    object Default : BaseState()
+    data object Init : BaseState()
+    data object Loading : BaseState()
+    data object Error : BaseState()
+    data object Default : BaseState()
 }

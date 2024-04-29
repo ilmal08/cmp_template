@@ -68,6 +68,9 @@ kotlin {
 
             api(libs.precompose)
             api(libs.precompose.viewmodel)
+
+            api(libs.resources)
+            api(libs.resources.compose)
         }
 
         commonTest.dependencies {
