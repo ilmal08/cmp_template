@@ -37,6 +37,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // compose core
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
@@ -46,28 +47,43 @@ kotlin {
                 @OptIn(ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
 
+                // kotlin core
+                implementation(libs.kotlin.serialization)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.kotlinx.datetime)
+
+                // library for Skia and window management
+                implementation(libs.skiko)
+
+                // async image
+                implementation(libs.kamel.image)
+
+                // http client
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.client.serialization.json)
                 implementation(libs.ktor.client.logging)
 
-                implementation(libs.kotlin.serialization)
-                implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.multiplatformSettings)
-                implementation(libs.skiko)
+                // dependency injection
                 implementation(libs.koin.core)
                 implementation(libs.koin.compose)
-                implementation(libs.kamel.image)
+
+                // logger
+                implementation(libs.kermit)
+
+                // navigator
                 implementation(libs.voyager.koin)
                 implementation(libs.voyager.navigator)
                 implementation(libs.voyager.screenmodel)
                 implementation(libs.voyager.tab)
                 implementation(libs.voyager.transition)
-                implementation(libs.kotlinx.datetime)
-                implementation(libs.kermit)
 
+                // resource path
                 api(libs.moko.resources)
                 api(libs.moko.resources.compose)
+
+                // local storage
+//                implementation("com.russhwolf:multiplatform-settings:1.1.1")
             }
         }
 

@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.home
 
+import KmpTemplate.shared.MR
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,26 +12,17 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
-import cafe.adriel.voyager.navigator.currentOrThrow
 import com.ilmal08.kmptemplate.views.components.NewsCard
-import cafe.adriel.voyager.koin.getScreenModel
 import com.ilmal08.kmptemplate.views.state.BaseState
 import com.ilmal08.kmptemplate.views.viewmodel.HomeViewModel
+import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
 fun HomeContent2(
@@ -44,7 +36,7 @@ fun HomeContent2(
     ) {
         Text(
             modifier = Modifier.padding(horizontal = 20.dp),
-            text = "Home",
+            text = stringResource(MR.strings.application_name),
             style = TextStyle(
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,

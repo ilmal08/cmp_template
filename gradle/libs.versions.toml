@@ -5,7 +5,6 @@ koinCore = "3.6.0-wasm-alpha2"
 koin-compose = "1.0.4"
 kotlin = "1.9.20"
 compose = "1.5.4"
-compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 compose-plugin = "1.5.11"
@@ -14,34 +13,39 @@ coroutines = "1.8.1-Beta"
 kotlinx-serialization = "1.6.3"
 moko = "0.23.0"
 skiko = "0.7.93"
-gson = "2.10.1"
-moko-mvvm = "0.16.1"
-napier = "2.7.1"
 composeImageLoader = "1.7.0"
 kamelImage = "0.9.4" ## KAMEL IMAGE BERMASALAH DI ANDROID VS IOS
-precompose = "1.5.6"
 voyager = "1.0.0"
 libres = "1.2.1"
-multiplatformSettings = "1.1.0"
+localStorageMultiplatform = "1.1.0"
 androidx-appcompat = "1.6.1"
 compose-uitooling = "1.5.4"
+compose-compiler = "1.5.4"
 kotlinx-datetime = "0.4.1"
 buildKonfig = "0.14.0"
 
 [libraries]
+# android core
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
-koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore"}
-koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose"  }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+# compose core
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "composeImageLoader" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+
+# koin (dependency injection)
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore"}
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose"  }
+
+# kremit (logger)
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+
+# ktor
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
@@ -49,28 +53,33 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
+# kotlin core
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlin-serialization = {module = "io.ktor:ktor-serialization-kotlinx-json", version.ref="ktor"}
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
-skiko = { module = "org.jetbrains.skiko:skiko", version.ref = "skiko" }
-com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version = "1.0.0-alpha01" }
-napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+# kamel (image async)
 kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
-precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
-precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
+
+# multiplatform setting (local storage)
+local-storage-multi-platform = { module = "com.russhwolf:multiplatform-settings", version.ref = "localStorageMultiplatform" }
+
+# moko (resource path)
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko" }
+
+# lib window manager for multi platform windows
+skiko = { module = "org.jetbrains.skiko:skiko", version.ref = "skiko" }
+
+# voyager (navigation)
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-tab = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
 voyager-transition = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager"}
-libres = { module = "io.github.skeptick.libres:libres-compose", version.ref = "libres" }
-multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
-moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
-moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -82,5 +91,3 @@ jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin
 libres = { id = "io.github.skeptick.libres", version.ref = "libres" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko" }
-buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
-
