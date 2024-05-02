@@ -5,8 +5,7 @@ import com.ilmal08.kmptemplate.views.viewmodel.SplashViewModel
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
-val splashViewModelModule = module { factory { SplashViewModel(get()) } }
-
 val presentationModule = module {
     factoryOf(::HomeViewModel)
+    factoryOf(::SplashViewModel)
 }

@@ -7,9 +7,7 @@ val httpClientModule = module { single { httpClient } }
 
 fun appModule() = listOf(
     httpClientModule,
-    splashRepositoryModule,
-    splashViewModelModule,
-    repositoryModule2,
     presentationModule,
+    repositoryModule,
     remoteSourceModule
 )

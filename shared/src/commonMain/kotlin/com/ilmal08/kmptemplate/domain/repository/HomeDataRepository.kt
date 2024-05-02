@@ -1,7 +1,7 @@
 package com.ilmal08.kmptemplate.domain.repository
 
-import com.ilmal08.kmptemplate.domain.DispatcherHandler
 import com.ilmal08.kmptemplate.data.source.remote.HomeService
+import com.ilmal08.kmptemplate.domain.DispatcherHandler
 import com.ilmal08.kmptemplate.domain.entity.NewsEntity
 import com.ilmal08.kmptemplate.domain.entity.common.ErrorEntity.Companion.apiError
 import com.ilmal08.kmptemplate.domain.entity.common.Result
@@ -23,5 +23,4 @@ class HomeDataRepository(
             error(apiError(errorMessage = "error api", responseCode = 504))
         }
     }
-
 }
