@@ -12,7 +12,7 @@ compose-plugin = "1.5.11"
 ktor = "2.3.9"
 coroutines = "1.8.1-Beta"
 kotlinx-serialization = "1.6.3"
-resourcesCompose = "0.23.0"
+moko = "0.23.0"
 skiko = "0.7.93"
 gson = "2.10.1"
 moko-mvvm = "0.16.1"
@@ -26,6 +26,7 @@ multiplatformSettings = "1.1.0"
 androidx-appcompat = "1.6.1"
 compose-uitooling = "1.5.4"
 kotlinx-datetime = "0.4.1"
+buildKonfig = "0.14.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
@@ -41,9 +42,7 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "composeImageLoader" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
-
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
-
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
@@ -55,12 +54,9 @@ kotlin-serialization = {module = "io.ktor:ktor-serialization-kotlinx-json", vers
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
-resources = { module = "dev.icerock.moko:resources", version.ref = "resourcesCompose" }
-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "resourcesCompose" }
 skiko = { module = "org.jetbrains.skiko:skiko", version.ref = "skiko" }
 com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version = "1.0.0-alpha01" }
-moko-mvvm = { module = "dev.icerock.moko:mvvm-compose", version.ref = "moko-mvvm" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
@@ -73,6 +69,8 @@ voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voy
 libres = { module = "io.github.skeptick.libres:libres-compose", version.ref = "libres" }
 multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -83,3 +81,6 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 libres = { id = "io.github.skeptick.libres", version.ref = "libres" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko" }
+buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
+

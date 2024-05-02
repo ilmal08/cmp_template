@@ -1,12 +1,13 @@
 package com.ilmal08.kmptemplate.views.screen.splash
 
+import KmpTemplate.shared.MR
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +21,8 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import com.ilmal08.kmptemplate.navigator.HomeTabNavigator
 import com.ilmal08.kmptemplate.views.viewmodel.SplashViewModel
+import dev.icerock.moko.resources.compose.painterResource
+import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.coroutines.delay
 
 
@@ -51,9 +54,12 @@ fun LoadingSurfaceContent(
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    CircularProgressIndicator()
+                    Image(
+                        painter = painterResource(MR.images.img_splash),
+                        contentDescription = null
+                    )
                     Spacer(modifier = Modifier.padding(vertical = 30.dp))
-                    Text("THIS IS SPLASH SCREEN")
+                    Text(stringResource(MR.strings.hello))
                 }
             }
         } else {

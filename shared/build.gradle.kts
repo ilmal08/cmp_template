@@ -5,10 +5,11 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.libres)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.moko.resources)
 }
 
+@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     androidTarget {
         compilations.all {
@@ -32,63 +33,75 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
-        commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.material3)
-            implementation(compose.ui)
-            implementation(compose.materialIconsExtended)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
+        val commonMain by getting {
+            dependencies {
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.material3)
+                implementation(compose.ui)
+                implementation(compose.materialIconsExtended)
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
 
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.client.serialization.json)
-            implementation(libs.ktor.client.logging)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.client.serialization.json)
+                implementation(libs.ktor.client.logging)
 
-            implementation(libs.kotlin.serialization)
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.moko.mvvm)
-            implementation(libs.multiplatformSettings)
-            implementation(libs.skiko)
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose)
-            implementation(libs.kamel.image)
-            implementation(libs.voyager.koin)
-            implementation(libs.voyager.navigator)
-            implementation(libs.voyager.screenmodel)
-            implementation(libs.voyager.tab)
-            implementation(libs.voyager.transition)
-            implementation(libs.libres)
-            implementation(libs.kotlinx.datetime)
-            implementation(libs.kermit)
+                implementation(libs.kotlin.serialization)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.multiplatformSettings)
+                implementation(libs.skiko)
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
+                implementation(libs.kamel.image)
+                implementation(libs.voyager.koin)
+                implementation(libs.voyager.navigator)
+                implementation(libs.voyager.screenmodel)
+                implementation(libs.voyager.tab)
+                implementation(libs.voyager.transition)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.kermit)
 
-            api(libs.precompose)
-            api(libs.precompose.viewmodel)
-
-            api(libs.resources)
-            api(libs.resources.compose)
+                api(libs.moko.resources)
+                api(libs.moko.resources.compose)
+            }
         }
 
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
         }
 
-        androidMain.dependencies {
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.appcompat)
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.ktor.client.okhttp)
-            implementation(libs.ktor.client.okhttp)
-            implementation(libs.kotlinx.coroutines.android)
-            implementation(libs.koin.android)
+        val androidMain by getting {
+            dependsOn(commonMain)
+
+            dependencies {
+                implementation(libs.androidx.activity.compose)
+                implementation(libs.androidx.appcompat)
+                implementation(libs.compose.ui.tooling.preview)
+                implementation(libs.ktor.client.okhttp)
+                implementation(libs.ktor.client.okhttp)
+                implementation(libs.kotlinx.coroutines.android)
+                implementation(libs.koin.android)
+            }
         }
 
-        iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
         }
     }
 }
