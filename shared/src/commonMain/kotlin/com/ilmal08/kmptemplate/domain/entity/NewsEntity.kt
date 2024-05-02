@@ -1,4 +1,4 @@
-package com.ilmal08.kmptemplate.entity
+package com.ilmal08.kmptemplate.domain.entity
 
 data class NewsEntity(
     val copyright: String,

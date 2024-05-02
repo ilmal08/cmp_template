@@ -21,6 +21,7 @@ androidx-appcompat = "1.6.1"
 compose-uitooling = "1.5.4"
 compose-compiler = "1.5.4"
 kotlinx-datetime = "0.4.1"
+kvault = "1.10.0"
 
 [libraries]
 # android core
@@ -64,6 +65,7 @@ kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
 
 # multiplatform setting (local storage)
 local-storage-multi-platform = { module = "com.russhwolf:multiplatform-settings", version.ref = "localStorageMultiplatform" }
+kvault-storage = { module = "com.liftric:kvault", version.ref = "kvault" }
 
 # moko (resource path)
 moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }

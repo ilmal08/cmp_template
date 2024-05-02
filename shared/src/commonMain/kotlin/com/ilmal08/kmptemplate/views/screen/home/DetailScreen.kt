@@ -52,12 +52,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.ilmal08.kmptemplate.data.model.response.ResultResponse
+import com.ilmal08.kmptemplate.domain.entity.ResultEntity
 import com.ilmal08.kmptemplate.util.formatDateTime
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 
-class DetailScreen(private val result: ResultResponse) : Screen {
+class DetailScreen(private val result: ResultEntity) : Screen {
     @Composable
     override fun Content() {
         Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
@@ -67,7 +67,7 @@ class DetailScreen(private val result: ResultResponse) : Screen {
 }
 
 @Composable
-fun DetailItem(result: ResultResponse) {
+fun DetailItem(result: ResultEntity) {
     val navigator = LocalNavigator.current
     val state = rememberScrollState()
     var onClick by remember {

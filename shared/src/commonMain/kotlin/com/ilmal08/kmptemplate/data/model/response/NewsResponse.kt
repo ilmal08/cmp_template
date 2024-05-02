@@ -1,6 +1,6 @@
 package com.ilmal08.kmptemplate.data.model.response
 
-import com.ilmal08.kmptemplate.entity.NewsEntity
+import com.ilmal08.kmptemplate.domain.entity.NewsEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

@@ -15,13 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import co.touchlab.kermit.Logger
-import com.ilmal08.kmptemplate.data.model.response.ResultResponse
+import com.ilmal08.kmptemplate.domain.entity.ResultEntity
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 
 @Composable
 fun NewsCard(
-    data: ResultResponse,
+    data: ResultEntity,
     onClick: () -> Unit
 ) {
     Card(

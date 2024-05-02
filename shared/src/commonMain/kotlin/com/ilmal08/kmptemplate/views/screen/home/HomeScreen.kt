@@ -12,6 +12,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -19,17 +21,26 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.navigator.Navigator
+import com.ilmal08.kmptemplate.domain.entity.NewsEntity
 import com.ilmal08.kmptemplate.views.components.NewsCard
-import com.ilmal08.kmptemplate.views.state.BaseState
+import com.ilmal08.kmptemplate.domain.state.BaseState
+import com.ilmal08.kmptemplate.domain.state.BaseState.StateFailed
+import com.ilmal08.kmptemplate.domain.state.BaseState.StateLoading
+import com.ilmal08.kmptemplate.domain.state.BaseState.StateSuccess
 import com.ilmal08.kmptemplate.views.viewmodel.HomeViewModel
 import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
-fun HomeContent2(
+fun HomeScreen(
     screenModel: HomeViewModel,
     navigator: Navigator,
-    state: BaseState
 ) {
+    val dataState = screenModel.dataState.collectAsState().value
+
+    LaunchedEffect(Unit) {
+        screenModel.fetchNews()
+    }
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
@@ -43,18 +54,18 @@ fun HomeContent2(
             )
         )
 
-        NewsContentHandler2(screenModel, state, navigator)
+        HomeHandler(screenModel, dataState, navigator)
     }
 }
 
 @Composable
-private fun NewsContentHandler2(
+private fun HomeHandler(
     screenModel: HomeViewModel,
-    state: BaseState,
+    state: BaseState<NewsEntity?>,
     navigator: Navigator
 ) {
     when(state) {
-        is BaseState.Loading ->
+        is StateLoading ->
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -63,12 +74,12 @@ private fun NewsContentHandler2(
             }
 
 
-        is BaseState.Error -> {
+        is StateFailed -> {
             Text("error(also you can add custom error message from response here) depends on your api response standard")
         }
 
-        is BaseState.Default -> {
-            val data = screenModel.data.value?.resultResponses
+        is StateSuccess -> {
+            val data = state.data?.resultResponses
             LazyColumn {
                 data?.size?.let {
                     items(data) {

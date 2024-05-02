@@ -11,6 +11,8 @@ import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.ilmal08.kmptemplate.navigator.HomeNavigator
 
+//import com.ilmal08.kmptemplate.navigator.HomeNavigator
+
 object HomeTab : Tab {
     override val options: TabOptions
         @Composable

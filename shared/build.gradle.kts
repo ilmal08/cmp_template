@@ -83,7 +83,7 @@ kotlin {
                 api(libs.moko.resources.compose)
 
                 // local storage
-//                implementation("com.russhwolf:multiplatform-settings:1.1.1")
+                implementation(libs.kvault.storage)
             }
         }
 
