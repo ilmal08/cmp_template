@@ -16,13 +16,11 @@ skiko = "0.7.93"
 composeImageLoader = "1.7.0"
 kamelImage = "0.9.4" ## KAMEL IMAGE BERMASALAH DI ANDROID VS IOS
 voyager = "1.0.0"
-libres = "1.2.1"
 localStorageMultiplatform = "1.1.0"
 androidx-appcompat = "1.6.1"
 compose-uitooling = "1.5.4"
 compose-compiler = "1.5.4"
 kotlinx-datetime = "0.4.1"
-buildKonfig = "0.14.0"
 
 [libraries]
 # android core
@@ -88,6 +86,5 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
-libres = { id = "io.github.skeptick.libres", version.ref = "libres" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko" }
