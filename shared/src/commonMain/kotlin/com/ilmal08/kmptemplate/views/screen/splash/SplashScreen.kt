@@ -19,8 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
+import com.ilmal08.kmptemplate.data.source.local.KeyLocalStorage.KEY_EXAMPLE
+import com.ilmal08.kmptemplate.data.source.local.localStorage
 import com.ilmal08.kmptemplate.navigator.HomeTabNavigator
 import com.ilmal08.kmptemplate.views.viewmodel.SplashViewModel
+import com.russhwolf.settings.set
 import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.coroutines.delay
@@ -38,11 +41,14 @@ fun LoadingSurfaceContent(
 ) {
     val isLoading = remember { mutableStateOf(true) }
 
+
     LaunchedEffect(Unit) {
+        localStorage[KEY_EXAMPLE] = "local storage data dari splash screen"
         delay(2000)
         isLoading.value = false
         navigator.replace(HomeTabNavigator())
     }
+
     Surface(
         color = Color.White, modifier = Modifier.fillMaxSize()
     ) {

@@ -21,12 +21,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.navigator.Navigator
+import com.ilmal08.kmptemplate.data.source.local.KeyLocalStorage.KEY_EXAMPLE
+import com.ilmal08.kmptemplate.data.source.local.localStorage
 import com.ilmal08.kmptemplate.domain.entity.NewsEntity
-import com.ilmal08.kmptemplate.views.components.NewsCard
 import com.ilmal08.kmptemplate.domain.state.BaseState
 import com.ilmal08.kmptemplate.domain.state.BaseState.StateFailed
 import com.ilmal08.kmptemplate.domain.state.BaseState.StateLoading
 import com.ilmal08.kmptemplate.domain.state.BaseState.StateSuccess
+import com.ilmal08.kmptemplate.navigator.DetailNavigator
+import com.ilmal08.kmptemplate.util.Constant.DefaultValue.EMPTY_STRINGS
+import com.ilmal08.kmptemplate.views.components.NewsCard
 import com.ilmal08.kmptemplate.views.viewmodel.HomeViewModel
 import dev.icerock.moko.resources.compose.stringResource
 
@@ -36,6 +40,8 @@ fun HomeScreen(
     navigator: Navigator,
 ) {
     val dataState = screenModel.dataState.collectAsState().value
+
+    val stringLocal = localStorage.getString(KEY_EXAMPLE, EMPTY_STRINGS)
 
     LaunchedEffect(Unit) {
         screenModel.fetchNews()
@@ -50,6 +56,15 @@ fun HomeScreen(
             text = stringResource(MR.strings.application_name),
             style = TextStyle(
                 fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+            )
+        )
+
+        Text(
+            modifier = Modifier.padding(horizontal = 20.dp),
+            text = stringLocal,
+            style = TextStyle(
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
             )
         )
@@ -85,7 +100,7 @@ private fun HomeHandler(
                     items(data) {
                         NewsCard(
                             data = it,
-                            onClick = { navigator.push(DetailScreen(it)) }
+                            onClick = { navigator.push(DetailNavigator(it)) }
                         )
                     }
                 }

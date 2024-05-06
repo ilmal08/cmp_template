@@ -16,7 +16,7 @@ skiko = "0.7.93"
 composeImageLoader = "1.7.0"
 kamelImage = "0.9.4" ## KAMEL IMAGE BERMASALAH DI ANDROID VS IOS
 voyager = "1.0.0"
-localStorageMultiplatform = "1.1.0"
+localStorageMultiplatform = "1.1.1"
 androidx-appcompat = "1.6.1"
 compose-uitooling = "1.5.4"
 compose-compiler = "1.5.4"
@@ -65,6 +65,7 @@ kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
 
 # multiplatform setting (local storage)
 local-storage-multi-platform = { module = "com.russhwolf:multiplatform-settings", version.ref = "localStorageMultiplatform" }
+local-storage-multi-platform-noarg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "localStorageMultiplatform"}
 kvault-storage = { module = "com.liftric:kvault", version.ref = "kvault" }
 
 # moko (resource path)

@@ -83,7 +83,8 @@ kotlin {
                 api(libs.moko.resources.compose)
 
                 // local storage
-                implementation(libs.kvault.storage)
+                implementation(libs.local.storage.multi.platform)
+                implementation(libs.local.storage.multi.platform.noarg)
             }
         }
 
