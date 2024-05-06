@@ -17,45 +17,41 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
-import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
-class SettingsScreen : Screen {
+@Composable
+fun SettingScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val navigator: Navigator = LocalNavigator.currentOrThrow
 
-    @Composable
-    override fun Content() {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .clickable {
+                    navigator.push(LegalScreen())
+                },
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            val navigator: Navigator = LocalNavigator.currentOrThrow
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .clickable {
-                        navigator.push(LegalScreen())
-                    },
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = rememberVectorPainter(Icons.Default.Info),
-                    contentDescription = "Legal",
-                )
-                Text(
-                    modifier = Modifier.padding(16.dp),
-                    text = "Legal"
-                )
-            }
-            Divider(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+            Icon(
+                modifier = Modifier.size(24.dp),
+                painter = rememberVectorPainter(Icons.Default.Info),
+                contentDescription = "Legal",
+            )
+            Text(
+                modifier = Modifier.padding(16.dp),
+                text = "Legal"
             )
         }
+        Divider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+        )
     }
 }

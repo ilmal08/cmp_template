@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import com.ilmal08.kmptemplate.data.source.local.KeyLocalStorage.KEY_EXAMPLE
 import com.ilmal08.kmptemplate.data.source.local.localStorage
-import com.ilmal08.kmptemplate.navigator.HomeTabNavigator
-import com.ilmal08.kmptemplate.views.viewmodel.SplashViewModel
+import com.ilmal08.kmptemplate.views.screen.home.navigator.HomeTabNavigator
+import com.ilmal08.kmptemplate.views.screen.splash.viewmodel.SplashViewModel
 import com.russhwolf.settings.set
 import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource

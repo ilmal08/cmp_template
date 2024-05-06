@@ -22,6 +22,8 @@ compose-uitooling = "1.5.4"
 compose-compiler = "1.5.4"
 kotlinx-datetime = "0.4.1"
 kvault = "1.10.0"
+seiko = "1.5.1"
+desugar_jdk_libs = "2.0.3"
 
 [libraries]
 # android core
@@ -62,6 +64,7 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 
 # kamel (image async)
 kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
+image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "seiko" }
 
 # multiplatform setting (local storage)
 local-storage-multi-platform = { module = "com.russhwolf:multiplatform-settings", version.ref = "localStorageMultiplatform" }
@@ -81,6 +84,8 @@ voyager-tab = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.re
 voyager-transition = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager"}
+
+desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
