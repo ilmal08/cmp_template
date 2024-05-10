@@ -20,7 +20,7 @@ data class NowPlayingResponse(
     @Serializable
     data class NowPlayingMovies(
         @SerialName("adult") val adult: Boolean,
-        @SerialName("backdrop_path") val backdropPath: String,
+        @SerialName("backdrop_path") val backdropPath: String?,
         @SerialName("genre_ids") val genreIds: List<Int>,
         @SerialName("id") val movieId: Int,
         @SerialName("original_language") val originalLanguage: String,

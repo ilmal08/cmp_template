@@ -1,7 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -47,6 +46,7 @@ import com.ilmal08.kmptemplate.views.components.LoadingComponent
 import com.ilmal08.kmptemplate.views.components.PosterImageComponent
 import com.ilmal08.kmptemplate.views.components.RateComponent
 import com.ilmal08.kmptemplate.views.components.TextItem
+import com.ilmal08.kmptemplate.views.screen.home.navigator.DetailNavigator
 import com.ilmal08.kmptemplate.views.screen.home.viewmodel.HomeViewModel
 
 @Composable
@@ -62,7 +62,6 @@ fun HomeScreen(
         Spacer(
             Modifier.fillMaxWidth()
                 .windowInsetsTopHeight(WindowInsets.statusBars)
-                .background(MaterialTheme.colorScheme.primary)
         )
 
         uiState.error.ifNotNull {
@@ -77,9 +76,7 @@ fun HomeScreen(
             modifier = Modifier.weight(1f),
             popularMovieData = uiState.popularMovieData,
             nowPlayingMovieData = uiState.nowPlayingMovieData,
-            onDetailClick = {
-                            // to detail
-            },
+            navigator = navigator
         )
     }
 }
@@ -89,20 +86,20 @@ fun SuccessContent(
     modifier: Modifier = Modifier,
     popularMovieData: List<PopularMovie>,
     nowPlayingMovieData: List<NowPlayingMovie>,
-    onDetailClick: (Int) -> Unit,
+    navigator: Navigator
 ) {
     LazyColumn(modifier = modifier) {
         item {
             HorizontalMoviePager(
                 popularMovieData,
                 onDetailClick = {
-                    onDetailClick(it)
+                    navigator.push(DetailNavigator(it))
                 }
             )
         }
         items(nowPlayingMovieData) { nowPlayingMovies ->
             NowPlayingMovieRow(nowPlayingMovies = nowPlayingMovies) { id ->
-                onDetailClick(id)
+                navigator.push(DetailNavigator(id))
             }
         }
     }
@@ -164,8 +161,7 @@ fun HorizontalMoviePager(
 
     Box {
         Surface(
-            modifier = Modifier.fillMaxWidth().height(250.dp),
-            color = MaterialTheme.colorScheme.primary
+            modifier = Modifier.fillMaxWidth().height(250.dp)
         ) {}
         Column {
             Row(

@@ -9,9 +9,12 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
+import com.ilmal08.kmptemplate.util.logger
 import com.ilmal08.kmptemplate.views.screen.setting.navigator.SettingNavigator
 
-object SettingsTab : Tab {
+class SettingsTab(
+    val onNavigator: (isRoot: Boolean) -> Unit,
+) : Tab {
 
     override val options: TabOptions
         @Composable
@@ -30,7 +33,9 @@ object SettingsTab : Tab {
 
     @Composable
     override fun Content() {
-        Navigator(screen = SettingNavigator()) { navigator ->
+        Navigator(screen = SettingNavigator(onNavigator)) { navigator ->
+            logger.i("NAVIGATOR : ${navigator.lastItem}")
+            onNavigator(navigator.lastItem is SettingNavigator)
             SlideTransition(navigator = navigator)
         }
     }

@@ -1,5 +1,7 @@
 package com.ilmal08.kmptemplate.data.source.remote.impl
 
+import com.ilmal08.kmptemplate.data.model.response.movie.CreditMovieResponse
+import com.ilmal08.kmptemplate.data.model.response.movie.DetailMovieResponse
 import com.ilmal08.kmptemplate.data.model.response.movie.NowPlayingResponse
 import com.ilmal08.kmptemplate.data.model.response.movie.PopularMovieResponse
 import com.ilmal08.kmptemplate.data.source.remote.MovieService
@@ -17,6 +19,15 @@ class MovieServiceImpl(
     override suspend fun nowPlaying(): NowPlayingResponse {
         return client.get(NOW_PLAYING_MOVIE).body()
     }
+
+    override suspend fun detail(id: Int): DetailMovieResponse {
+        return client.get("movie/$id").body()
+    }
+
+    override suspend fun credit(id: Int): CreditMovieResponse {
+        return client.get("movie/$id/credits").body()
+    }
+
 
     companion object {
         const val POPULAR_MOVIE = "movie/popular"

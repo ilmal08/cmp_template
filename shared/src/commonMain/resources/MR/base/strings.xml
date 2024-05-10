@@ -2,4 +2,6 @@
 <resources>
     <string name="hello">Hello</string>
     <string name="application_name">KMP Test Application</string>
+    <string name="home_tab">Home</string>
+    <string name="settings_tab">Settings</string>
 </resources>

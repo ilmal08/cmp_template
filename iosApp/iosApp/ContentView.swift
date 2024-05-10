@@ -2,16 +2,19 @@ import SwiftUI
 import shared
 
 struct ComposeView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIViewController {
-        MainViewControllerKt.MainViewController()
-    }
+   func makeUIViewController(context: Context) -> UIViewController {
+       MainViewControllerKt.MainViewController()
+   }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+   func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
 struct ContentView: View {
-    var body: some View {
-        ComposeView()
-                .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
-    }
+   var body: some View {
+       GeometryReader { geo in
+           ComposeView()
+           .edgesIgnoringSafeArea(.all)
+           .ignoresSafeArea(.keyboard)
+       }
+   }
 }

@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.splash
 
+//import com.ilmal08.kmptemplate.views.screen.home.navigator.HomeTabNavigator
 import KmpTemplate.shared.MR
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

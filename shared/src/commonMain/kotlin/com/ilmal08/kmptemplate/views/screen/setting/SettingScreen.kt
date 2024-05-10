@@ -20,38 +20,46 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import com.ilmal08.kmptemplate.views.components.ContentLayout
+import com.ilmal08.kmptemplate.views.screen.setting.navigator.LegalNavigator
 
 @Composable
 fun SettingScreen() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        val navigator: Navigator = LocalNavigator.currentOrThrow
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .clickable {
-                    navigator.push(LegalScreen())
-                },
-            verticalAlignment = Alignment.CenterVertically,
+    ContentLayout(
+        appbarTitle = "Detail",
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Icon(
-                modifier = Modifier.size(24.dp),
-                painter = rememberVectorPainter(Icons.Default.Info),
-                contentDescription = "Legal",
-            )
-            Text(
-                modifier = Modifier.padding(16.dp),
-                text = "Legal"
+            val navigator: Navigator = LocalNavigator.currentOrThrow
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .clickable {
+                        navigator.push(LegalNavigator())
+                    },
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    painter = rememberVectorPainter(Icons.Default.Info),
+                    contentDescription = "Legal",
+                )
+                Text(
+                    modifier = Modifier.padding(16.dp),
+                    text = "Legal"
+                )
+            }
+            Divider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
             )
         }
-        Divider(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-        )
     }
+
 }

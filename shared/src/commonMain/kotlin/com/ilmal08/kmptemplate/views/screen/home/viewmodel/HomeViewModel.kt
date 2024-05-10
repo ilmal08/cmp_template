@@ -21,6 +21,14 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel {
     private fun fetchData() {
         viewModelScope.launch {
             val popularMovieResult = repository.getPopularMovie()
+                .onFailure { data ->
+                    _uiState.update { uiState ->
+                        uiState.copy(
+                            isLoading = false,
+                            error = data.message.toString()
+                        )
+                    }
+                }
             val nowPlayingMovieResult = repository.getNowPlaying()
 
             if (popularMovieResult.isSuccess && nowPlayingMovieResult.isSuccess) {
@@ -30,10 +38,6 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel {
                         popularMovieData = popularMovieResult.getOrDefault(listOf()),
                         nowPlayingMovieData = nowPlayingMovieResult.getOrDefault(listOf())
                     )
-                }
-            } else {
-                _uiState.update { uiState ->
-                    uiState.copy(isLoading = false, error = "Hata!")
                 }
             }
         }
