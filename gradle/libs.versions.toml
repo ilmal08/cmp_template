@@ -1,6 +1,5 @@
 [versions]
 agp = "8.2.2"
-kermit = "2.0.3"
 koinCore = "3.6.0-wasm-alpha2"
 koin-compose = "1.0.4"
 kotlin = "1.9.20"
@@ -24,6 +23,7 @@ kotlinx-datetime = "0.4.1"
 kvault = "1.10.0"
 seiko = "1.5.1"
 desugar_jdk_libs = "2.0.3"
+napier = "2.7.1"
 
 [libraries]
 # android core
@@ -43,8 +43,8 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore"}
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose"  }
 
-# kremit (logger)
-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+# (logger)
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 
 # ktor
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }

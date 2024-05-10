@@ -3,11 +3,12 @@ package com.ilmal08.kmptemplate.di
 import com.ilmal08.kmptemplate.data.source.remote.MovieService
 import com.ilmal08.kmptemplate.data.source.remote.impl.MovieServiceImpl
 import com.ilmal08.kmptemplate.util.Constant
+import io.github.aakira.napier.DebugAntilog
+import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
-import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
@@ -38,8 +39,12 @@ val networkModule = module {
                 socketTimeoutMillis = timeout
             }
             install(Logging) {
-                logger = Logger.DEFAULT
-                level = LogLevel.ALL
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        Napier.v(tag = "HTTP REQUEST", message = message)
+                    }
+                }
+                level = LogLevel.BODY
             }
             install(ContentNegotiation) {
                 json(Json {
@@ -48,7 +53,8 @@ val networkModule = module {
                 })
             }
         }
+    }.also {
+        Napier.base(DebugAntilog())
     }
-
     single<MovieService> { MovieServiceImpl(get()) }
 }

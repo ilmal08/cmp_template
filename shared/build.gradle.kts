@@ -70,7 +70,7 @@ kotlin {
                 implementation(libs.koin.compose)
 
                 // logger
-                implementation(libs.kermit)
+                implementation(libs.napier)
 
                 // navigator
                 implementation(libs.voyager.koin)
