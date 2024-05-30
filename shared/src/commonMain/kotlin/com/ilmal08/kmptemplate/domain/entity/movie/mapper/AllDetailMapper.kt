@@ -3,9 +3,14 @@ package com.ilmal08.kmptemplate.domain.entity.movie.mapper
 import com.ilmal08.kmptemplate.domain.entity.movie.AllDetailMovie
 import com.ilmal08.kmptemplate.domain.entity.movie.CreditMovie
 import com.ilmal08.kmptemplate.domain.entity.movie.DetailMovie
+import com.ilmal08.kmptemplate.domain.entity.movie.SimilarMovie
 
 class AllDetailMapper {
-    fun map(from: DetailMovie, credit: List<CreditMovie>): AllDetailMovie {
+    fun map(
+        from: DetailMovie,
+        credit: List<CreditMovie>,
+        similar: List<SimilarMovie>
+        ): AllDetailMovie {
         with(from) {
             return AllDetailMovie(
                 movieId = movieId,
@@ -18,7 +23,8 @@ class AllDetailMapper {
                 genre = genre,
                 voteCount = voteCount,
                 backdropPath = backdropPath,
-                credit = credit
+                credit = credit,
+                similar = similar
             )
         }
     }

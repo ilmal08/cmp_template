@@ -9,6 +9,9 @@
     <string name="release">Release</string>
     <string name="cast">Cast</string>
     <string name="overview">Overview</string>
+    <string name="similar">Similar Movie</string>
+    <string name="search">Search</string>
+    <string name="empty_search">Search not found!</string>
 
     <!-- legel info content-->
     <string name="terms_of_use">Terms of Use</string>

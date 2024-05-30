@@ -12,5 +12,6 @@ data class AllDetailMovie(
     val voteCount: Int = 0,
     val backdropPath: String = "",
     val credit: List<CreditMovie> = listOf(),
+    val similar: List<SimilarMovie> = listOf(),
     val homepage: String = ""
 )

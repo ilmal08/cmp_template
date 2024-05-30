@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.di
 
+import androidx.compose.ui.text.intl.Locale
 import com.ilmal08.kmptemplate.data.source.remote.MovieService
 import com.ilmal08.kmptemplate.data.source.remote.impl.MovieServiceImpl
 import com.ilmal08.kmptemplate.util.Constant
@@ -20,6 +21,7 @@ import org.koin.dsl.module
 
 @OptIn(ExperimentalSerializationApi::class)
 val networkModule = module {
+    val currentLanguage = Locale.current.language
     single {
         HttpClient {
             defaultRequest {
@@ -27,6 +29,8 @@ val networkModule = module {
                     if (this.host.isBlank()) {
                         takeFrom(Constant.ApiConfig.BASE_URL_MOVIE)
                         parameters.append("api_key", Constant.ApiConfig.API_KEY_MOVIE)
+                        parameters.append("language", currentLanguage)
+                        parameters.append("include_adult", true.toString())
                     }
                 }
             }

@@ -2,6 +2,7 @@ package com.ilmal08.kmptemplate.views.screen.home
 
 import KmpTemplate.shared.MR
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,11 +13,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -24,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,6 +48,7 @@ import com.ilmal08.kmptemplate.views.components.PosterImageComponent
 import com.ilmal08.kmptemplate.views.components.RateComponent
 import com.ilmal08.kmptemplate.views.components.TextItem
 import com.ilmal08.kmptemplate.views.screen.home.navigator.DetailNavigator
+import com.ilmal08.kmptemplate.views.screen.home.navigator.SearchNavigator
 import com.ilmal08.kmptemplate.views.screen.home.viewmodel.HomeViewModel
 import dev.icerock.moko.resources.compose.stringResource
 
@@ -78,6 +87,54 @@ fun SuccessContent(
 ) {
     LazyColumn(modifier = modifier) {
         item {
+            Row(
+                modifier = Modifier.padding(top = 10.dp, start = 15.dp, end = 15.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(modifier = Modifier.weight(2f)) {
+                    TextItem(
+                        fontSize = 20.sp,
+                        textColor = MaterialTheme.colorScheme.primary,
+                        text = stringResource(MR.strings.application_name)
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .padding(start = 10.dp)
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .background(
+                            shape = RoundedCornerShape(20.dp),
+                            color = MaterialTheme.colorScheme.secondaryContainer
+                        )
+                        .padding(16.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Icon(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clickable {
+                                    navigator.push(SearchNavigator())
+                                },
+                            painter = rememberVectorPainter(Icons.Default.Search),
+                            contentDescription = "Search",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                        Icon(
+                            modifier = Modifier.size(24.dp),
+                            painter = rememberVectorPainter(Icons.Filled.Person),
+                            contentDescription = "Person",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
+            }
+        }
+
+        item {
             HorizontalMoviePager(
                 popularMovieData,
                 onDetailClick = {
@@ -85,6 +142,7 @@ fun SuccessContent(
                 }
             )
         }
+
         items(nowPlayingMovieData) { nowPlayingMovies ->
             NowPlayingMovieRow(nowPlayingMovies = nowPlayingMovies) { id ->
                 navigator.push(DetailNavigator(id))
@@ -150,18 +208,6 @@ fun HorizontalMoviePager(
 
     Box {
         Column {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                TextItem(
-                    fontSize = 34.sp,
-                    textColor = MaterialTheme.colorScheme.primaryContainer,
-                    text = stringResource(MR.strings.application_name)
-                )
-            }
-
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.fillMaxSize()

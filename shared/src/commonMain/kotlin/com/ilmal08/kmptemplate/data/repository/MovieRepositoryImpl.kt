@@ -5,6 +5,8 @@ import com.ilmal08.kmptemplate.domain.entity.movie.CreditMovie
 import com.ilmal08.kmptemplate.domain.entity.movie.DetailMovie
 import com.ilmal08.kmptemplate.domain.entity.movie.NowPlayingMovie
 import com.ilmal08.kmptemplate.domain.entity.movie.PopularMovie
+import com.ilmal08.kmptemplate.domain.entity.movie.SearchMovie
+import com.ilmal08.kmptemplate.domain.entity.movie.SimilarMovie
 import com.ilmal08.kmptemplate.domain.repository.MovieRepository
 import com.ilmal08.kmptemplate.domain.resultOf
 
@@ -35,4 +37,17 @@ class MovieRepositoryImpl(
             service.credit(id).cast.map { it.toDomain() }
         }
     }
+
+    override suspend fun getSimilar(id: Int): Result<List<SimilarMovie>> {
+        return resultOf {
+            service.similarMovie(id).results.map { it.toDomain() }
+        }
+    }
+
+    override suspend fun searchMovie(query: String): Result<List<SearchMovie>> {
+        return resultOf {
+            service.searchMovie(query).results.map { it.toDomain() }
+        }
+    }
+
 }

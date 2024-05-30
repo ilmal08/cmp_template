@@ -9,6 +9,9 @@
     <string name="release">Tayang</string>
     <string name="cast">Pemeran</string>
     <string name="overview">Ringkasan</string>
+    <string name="similar">Film Sejenis</string>
+    <string name="search">Cari</string>
+    <string name="empty_search">Pencarian tidak ditemukan!</string>
 
     <!-- legel info content-->
     <string name="terms_of_use">Persyaratan Penggunaan</string>
