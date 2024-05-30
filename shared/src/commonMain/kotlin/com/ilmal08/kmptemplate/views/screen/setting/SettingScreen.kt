@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.setting
 
+import KmpTemplate.shared.MR
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.ilmal08.kmptemplate.views.screen.setting.navigator.LegalNavigator
+import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
 fun SettingScreen() {
@@ -43,7 +45,8 @@ fun SettingScreen() {
                 tint = MaterialTheme.colorScheme.primary
             )
             Text(
-                modifier = Modifier.padding(16.dp), text = "Legal",
+                modifier = Modifier.padding(16.dp),
+                text = stringResource(MR.strings.setting_legal_title),
                 color = MaterialTheme.colorScheme.secondary
             )
         }

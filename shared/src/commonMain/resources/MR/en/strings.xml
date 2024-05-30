@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="hello">Hello</string>
-    <string name="application_name">KMP Test Application</string>
+    <string name="application_name">CMP Application</string>
+    <string name="home_tab">Home</string>
+    <string name="setting_tab">Setting</string>
+    <string name="topbar_detail_title">Detail</string>
+    <string name="setting_legal_title">Legal</string>
+    <string name="release">Release</string>
+    <string name="cast">Cast</string>
+    <string name="overview">Overview</string>
+
+    <!-- legel info content-->
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="acceptance">1. Acceptance of Terms\nBy using this application, you agree to be bound by the following terms and conditions. If you do not agree with these terms, you are not permitted to use this application.</string>
+    <string name="usage">2. Use of the Application\nThis application is provided for personal and non-commercial use. You are not permitted to use this application for illegal or unauthorized purposes.</string>
+    <string name="intellectual_property">3. Intellectual Property Rights\nAll content, design, text, graphics, and other materials in this application are protected by copyright and other intellectual property rights. You are not permitted to distribute, modify, transmit, or use the content of this application without our written permission.</string>
+    <string name="updates">4. Updates and Changes\nWe reserve the right to update, change, or discontinue the services of this application at any time without prior notice. We may also change these terms and conditions from time to time, and such changes will be effective immediately upon publication in this application.</string>
+    <string name="liability">5. Limitation of Liability\nWe are not responsible for any loss or damage that may arise from the use or inability to use this application, including but not limited to errors or omissions in the content of this application.</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="information_collection">1. Information We Collect\nWe may collect personal information that you voluntarily provide, such as your name, email address, and other contact information when you register or use this application. We may also automatically collect non-personal information, such as application usage data and device information.</string>
+    <string name="information_use">2. Use of Information\nThe information we collect is used to provide and improve our services, personalize your experience, send important notifications, and communicate with you about services and promotions.</string>
+    <string name="information_sharing">3. Sharing Information\nWe will not sell, rent, or share your personal information with third parties without your consent, except as required by law or to protect our rights and property.</string>
+    <string name="information_security">4. Information Security\nWe take reasonable security measures to protect your personal information from unauthorized access, disclosure, or destruction. However, we cannot guarantee absolute security of the information you provide.</string>
+    <string name="your_rights">5. Your Rights\nYou have the right to access, update, or delete your personal information that we hold. You may also withdraw your consent for the collection and use of your information at any time by contacting us.</string>
+    <string name="privacy_changes">6. Changes to the Privacy Policy\nWe may change this privacy policy from time to time. Changes will be effective immediately upon publication in this application. We encourage you to periodically review this privacy policy to stay informed of updates or changes.</string>
+    <string name="contact_us">7. Contact Us\nIf you have any questions or concerns about our privacy policy or practices, please contact us at [email@example.com].</string>
+
 </resources>
 

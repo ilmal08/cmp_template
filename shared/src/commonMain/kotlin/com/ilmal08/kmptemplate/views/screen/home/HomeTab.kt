@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.home
 
+import KmpTemplate.shared.MR
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
@@ -10,6 +11,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.ilmal08.kmptemplate.views.screen.home.navigator.HomeNavigator
+import dev.icerock.moko.resources.compose.stringResource
 import kotlin.jvm.Transient
 
 //import com.ilmal08.kmptemplate.views.screen.home.navigator.HomeNavigator
@@ -21,7 +23,7 @@ class HomeTab(
     override val options: TabOptions
         @Composable
         get() {
-            val title = "Home"
+            val title = stringResource(MR.strings.home_tab)
             val icon = rememberVectorPainter(Icons.Default.Home)
 
             return remember {

@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.home
 
+import KmpTemplate.shared.MR
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,11 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import cafe.adriel.voyager.navigator.Navigator
-import com.ilmal08.kmptemplate.data.source.local.KeyLocalStorage.KEY_EXAMPLE
-import com.ilmal08.kmptemplate.data.source.local.localStorage
 import com.ilmal08.kmptemplate.domain.entity.movie.NowPlayingMovie
 import com.ilmal08.kmptemplate.domain.entity.movie.PopularMovie
-import com.ilmal08.kmptemplate.util.Constant.DefaultValue.EMPTY_STRINGS
 import com.ilmal08.kmptemplate.util.ifNotNull
 import com.ilmal08.kmptemplate.views.components.CardImageComponent
 import com.ilmal08.kmptemplate.views.components.DateComponent
@@ -43,6 +41,7 @@ import com.ilmal08.kmptemplate.views.components.RateComponent
 import com.ilmal08.kmptemplate.views.components.TextItem
 import com.ilmal08.kmptemplate.views.screen.home.navigator.DetailNavigator
 import com.ilmal08.kmptemplate.views.screen.home.viewmodel.HomeViewModel
+import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
 fun HomeScreen(
@@ -159,7 +158,7 @@ fun HorizontalMoviePager(
                 TextItem(
                     fontSize = 34.sp,
                     textColor = MaterialTheme.colorScheme.primaryContainer,
-                    text = localStorage.getString(KEY_EXAMPLE, EMPTY_STRINGS)
+                    text = stringResource(MR.strings.application_name)
                 )
             }
 

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="hello">Halo</string>
-    <string name="application_name">KMP Aplikasi Tes</string>
+    <string name="application_name">Aplikasi CMP</string>
+    <string name="home_tab">Beranda</string>
+    <string name="setting_tab">Pengaturan</string>
+    <string name="topbar_detail_title">Detail</string>
+    <string name="setting_legal_title">Hukum</string>
+    <string name="release">Tayang</string>
+    <string name="cast">Pemeran</string>
+    <string name="overview">Ringkasan</string>
+
+    <!-- legel info content-->
+    <string name="terms_of_use">Persyaratan Penggunaan</string>
+    <string name="acceptance">1. Penerimaan Syarat\nDengan menggunakan aplikasi ini, Anda menyetujui untuk terikat oleh syarat dan ketentuan berikut. Jika Anda tidak setuju dengan syarat ini, Anda tidak diperbolehkan menggunakan aplikasi ini.</string>
+    <string name="usage">2. Penggunaan Aplikasi\nAplikasi ini disediakan untuk penggunaan pribadi dan non-komersial. Anda tidak diperkenankan untuk menggunakan aplikasi ini untuk tujuan ilegal atau tidak sah.</string>
+    <string name="intellectual_property">3. Hak Kekayaan Intelektual\nSeluruh konten, desain, teks, grafik, dan materi lainnya dalam aplikasi ini dilindungi oleh hak cipta dan hak kekayaan intelektual lainnya. Anda tidak diperkenankan untuk mendistribusikan, mengubah, mentransmisikan, atau menggunakan konten aplikasi ini tanpa izin tertulis dari kami.</string>
+    <string name="updates">4. Pembaruan dan Perubahan\nKami berhak untuk memperbarui, mengubah, atau menghentikan layanan aplikasi ini setiap saat tanpa pemberitahuan sebelumnya. Kami juga dapat mengubah syarat dan ketentuan ini dari waktu ke waktu, dan perubahan tersebut akan berlaku segera setelah dipublikasikan dalam aplikasi ini.</string>
+    <string name="liability">5. Batasan Tanggung Jawab\nKami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan atau ketidakmampuan untuk menggunakan aplikasi ini, termasuk namun tidak terbatas pada kesalahan atau kelalaian dalam konten aplikasi ini.</string>
+
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="information_collection">1. Informasi yang Kami Kumpulkan\nKami dapat mengumpulkan informasi pribadi yang Anda berikan secara sukarela, seperti nama, alamat email, dan informasi kontak lainnya saat Anda mendaftar atau menggunakan aplikasi ini. Kami juga dapat mengumpulkan informasi non-pribadi secara otomatis, seperti data penggunaan aplikasi dan informasi perangkat.</string>
+    <string name="information_use">2. Penggunaan Informasi\nInformasi yang kami kumpulkan digunakan untuk menyediakan dan meningkatkan layanan kami, mempersonalisasi pengalaman Anda, mengirimkan pemberitahuan penting, dan berkomunikasi dengan Anda tentang layanan dan promosi.</string>
+    <string name="information_sharing">3. Pembagian Informasi\nKami tidak akan menjual, menyewakan, atau membagikan informasi pribadi Anda kepada pihak ketiga tanpa izin Anda, kecuali jika diwajibkan oleh hukum atau untuk melindungi hak dan properti kami.</string>
+    <string name="information_security">4. Keamanan Informasi\nKami mengambil langkah-langkah keamanan yang wajar untuk melindungi informasi pribadi Anda dari akses yang tidak sah, pengungkapan, atau penghancuran. Namun, kami tidak dapat menjamin keamanan absolut dari informasi yang Anda berikan.</string>
+    <string name="your_rights">5. Hak Anda\nAnda berhak untuk mengakses, memperbarui, atau menghapus informasi pribadi Anda yang kami simpan. Anda juga dapat menarik persetujuan Anda untuk pengumpulan dan penggunaan informasi Anda kapan saja dengan menghubungi kami.</string>
+    <string name="privacy_changes">6. Perubahan Kebijakan Privasi\nKami dapat mengubah kebijakan privasi ini dari waktu ke waktu. Perubahan akan diberlakukan segera setelah dipublikasikan dalam aplikasi ini. Kami mendorong Anda untuk secara berkala meninjau kebijakan privasi ini untuk mengetahui pembaruan atau perubahan.</string>
+    <string name="contact_us">7. Kontak Kami\nJika Anda memiliki pertanyaan atau kekhawatiran mengenai kebijakan privasi atau praktik kami, silakan hubungi kami di [email@example.com].</string>
+    
 </resources>
 

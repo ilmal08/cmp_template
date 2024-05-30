@@ -1,5 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.setting
 
+import KmpTemplate.shared.MR
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
@@ -10,6 +11,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.ilmal08.kmptemplate.views.screen.setting.navigator.SettingNavigator
+import dev.icerock.moko.resources.compose.stringResource
 import kotlin.jvm.Transient
 
 class SettingsTab(
@@ -20,7 +22,7 @@ class SettingsTab(
     override val options: TabOptions
         @Composable
         get() {
-            val title = "Settings"
+            val title = stringResource(MR.strings.setting_tab)
             val icon = rememberVectorPainter(Icons.Default.Settings)
 
             return remember {
