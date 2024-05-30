@@ -46,6 +46,6 @@ class MovieServiceImpl(
     companion object {
         const val POPULAR_MOVIE = "movie/popular"
         const val NOW_PLAYING_MOVIE = "movie/now_playing"
-        const val SEARCH = "search/multi"
+        const val SEARCH = "search/movie"
     }
 }

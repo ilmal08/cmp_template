@@ -26,6 +26,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import com.ilmal08.kmptemplate.domain.entity.movie.SearchMovieMap
 import com.ilmal08.kmptemplate.util.ifNotNull
 import com.ilmal08.kmptemplate.views.components.CardImageComponent
@@ -48,13 +51,15 @@ fun SearchScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val queryState by viewModel.query.collectAsState()
+    val navigator: Navigator = LocalNavigator.currentOrThrow
 
     LaunchedEffect(Unit) {
         viewModel.makeSearch()
     }
 
     ContentLayout(
-        isShowTopBar = false
+        appbarTitle = stringResource(MR.strings.topbar_search),
+        onBackPressed = { navigator.pop() }
     ) {
         uiState.error.ifNotNull {
             ErrorScreen(it)
@@ -81,7 +86,7 @@ fun SearchContent(
         Box(
             modifier = Modifier.fillMaxSize()
         ) {
-            Column(modifier = Modifier.padding(horizontal = 24.dp).padding(top = 40.dp)) {
+            Column(modifier = Modifier.padding(horizontal = 15.dp)) {
                 TextItem(
                     text = stringResource(MR.strings.search),
                     fontSize = 34.sp,

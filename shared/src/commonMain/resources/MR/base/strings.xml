@@ -10,7 +10,8 @@
     <string name="cast">Cast</string>
     <string name="overview">Overview</string>
     <string name="similar">Similar Movie</string>
-    <string name="search">Search</string>
+    <string name="topbar_search">Search</string>
+    <string name="search">Discover movie</string>
     <string name="empty_search">Search not found!</string>
 
     <!-- legel info content-->
