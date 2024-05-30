@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -18,7 +19,7 @@ fun LegalScreen() {
     val navigator: Navigator = LocalNavigator.currentOrThrow
 
     ContentLayout(
-        appbarTitle = "Detail",
+        appbarTitle = "Legal",
         onBackPressed = { navigator.pop() }
     ) {
         Column(
@@ -40,6 +41,7 @@ fun LegalScreen() {
                         "primis in faucibus orci luctus et ultrices posuere cubilia Curae; " +
                         "Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. " +
                         "Maecenas adipiscing ante non diam sodales hendrerit.",
+                color = MaterialTheme.colorScheme.secondary
             )
         }
     }

@@ -13,6 +13,7 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,8 +36,6 @@ class HomeTabNavigator : Screen {
     override fun Content() {
         var isVisible by remember { mutableStateOf(true) }
 
-//        var isPadding by remember { mutableStateOf(true) }
-
         val homeTab = remember {
             HomeTab(
                 onNavigator = { isVisible = it }
@@ -58,7 +57,9 @@ class HomeTabNavigator : Screen {
                     }, exit = slideOutVertically { height ->
                         height
                     }) {
-                        BottomNavigation {
+                        BottomNavigation(
+                            backgroundColor = MaterialTheme.colorScheme.primaryContainer
+                        ) {
                             TabNavigationItem(homeTab)
                             TabNavigationItem(settingsTab)
                         }
@@ -91,13 +92,15 @@ private fun RowScope.TabNavigationItem(tab: Tab) {
                 Icon(
                     painter = icon,
                     contentDescription =
-                    tab.options.title
+                    tab.options.title,
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         },
         label = {
             Text(
-                text = tab.options.title
+                text = tab.options.title,
+                color = MaterialTheme.colorScheme.secondary
             )
         }
     )

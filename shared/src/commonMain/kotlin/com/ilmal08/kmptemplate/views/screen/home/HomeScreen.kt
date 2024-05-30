@@ -6,21 +6,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.Card
-import androidx.compose.material.Surface
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -57,13 +52,8 @@ fun HomeScreen(
     val uiState by viewModel.uiState.collectAsState()
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(
-            Modifier.fillMaxWidth()
-                .windowInsetsTopHeight(WindowInsets.statusBars)
-        )
-
         uiState.error.ifNotNull {
             ErrorScreen(it)
         }
@@ -73,7 +63,6 @@ fun HomeScreen(
         }
 
         SuccessContent(
-            modifier = Modifier.weight(1f),
             popularMovieData = uiState.popularMovieData,
             nowPlayingMovieData = uiState.nowPlayingMovieData,
             navigator = navigator
@@ -117,6 +106,7 @@ fun NowPlayingMovieRow(
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable { onDetailClick.invoke(nowPlayingMovies.movieId) },
         shape = MaterialTheme.shapes.small,
+        backgroundColor = MaterialTheme.colorScheme.secondaryContainer
     ) {
         Row {
 
@@ -160,12 +150,9 @@ fun HorizontalMoviePager(
     }
 
     Box {
-        Surface(
-            modifier = Modifier.fillMaxWidth().height(250.dp)
-        ) {}
         Column {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -181,7 +168,8 @@ fun HorizontalMoviePager(
                 modifier = Modifier.fillMaxSize()
             ) { page ->
                 Card(
-                    Modifier
+                    backgroundColor = MaterialTheme.colorScheme.primaryContainer,
+                    modifier = Modifier
                         .graphicsLayer {
                             val pageOffset = pagerState.currentPageOffsetFraction
                             lerp(

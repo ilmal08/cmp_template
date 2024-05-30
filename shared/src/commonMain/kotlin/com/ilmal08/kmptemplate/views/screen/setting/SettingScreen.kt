@@ -12,6 +12,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,9 +40,11 @@ fun SettingScreen() {
                 modifier = Modifier.size(24.dp),
                 painter = rememberVectorPainter(Icons.Default.Info),
                 contentDescription = "Legal",
+                tint = MaterialTheme.colorScheme.primary
             )
             Text(
-                modifier = Modifier.padding(16.dp), text = "Legal"
+                modifier = Modifier.padding(16.dp), text = "Legal",
+                color = MaterialTheme.colorScheme.secondary
             )
         }
         Divider(

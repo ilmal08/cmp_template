@@ -11,13 +11,13 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
@@ -89,7 +89,7 @@ private fun DetailSection(
         Text(
             text = data.title,
             style = MaterialTheme.typography.h4,
-            color = Color.Black,
+            color = colorScheme.secondary,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
@@ -99,7 +99,7 @@ private fun DetailSection(
         Text(
             text = "Release: ${data.releaseDate}",
             style = MaterialTheme.typography.body1,
-            color = Color.Gray,
+            color = colorScheme.secondary,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
@@ -109,7 +109,7 @@ private fun DetailSection(
         Text(
             text = "Overview:",
             style = MaterialTheme.typography.subtitle1,
-            color = Color.Black,
+            color = colorScheme.secondary,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -118,7 +118,7 @@ private fun DetailSection(
         Text(
             text = data.overview,
             style = MaterialTheme.typography.body1,
-            color = Color.Black,
+            color = colorScheme.secondary,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -132,7 +132,7 @@ private fun CreditSection(state: DetailState) {
         Text(
             text = "Cast",
             style = MaterialTheme.typography.subtitle1,
-            color = Color.Black,
+            color = colorScheme.secondary,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -157,7 +157,7 @@ private fun CreditSection(state: DetailState) {
                     Text(
                         text = it.originalName,
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black,
+                        color = colorScheme.secondary,
                         modifier = Modifier.fillMaxWidth()
                     )
 
@@ -166,7 +166,7 @@ private fun CreditSection(state: DetailState) {
                     Text(
                         text = it.character,
                         style = MaterialTheme.typography.body2,
-                        color = Color.Black,
+                        color = colorScheme.secondary,
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
