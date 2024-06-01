@@ -1,7 +1,6 @@
 package com.ilmal08.kmptemplate.di
 
 import androidx.compose.ui.text.intl.Locale
-import com.ilmal08.kmptemplate.data.model.response.otherResponse.ErrorResponse
 import com.ilmal08.kmptemplate.data.source.remote.MovieService
 import com.ilmal08.kmptemplate.data.source.remote.impl.MovieServiceImpl
 import com.ilmal08.kmptemplate.util.Constant
@@ -66,12 +65,4 @@ val networkModule = module {
         }
     }
     single<MovieService> { MovieServiceImpl(get()) }
-}
-
-fun parseErrorResponse(errorResponse: String): ErrorResponse {
-    return Json.decodeFromString(errorResponse)
-}
-
-fun handleErrorResponse(errorResponse: ErrorResponse) {
-    println("Error: ${errorResponse.statusMessage} (Code: ${errorResponse.statusCode})")
 }
