@@ -1,6 +1,5 @@
 package com.ilmal08.kmptemplate.domain
 
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
@@ -9,11 +8,9 @@ suspend inline fun <T> invoke(noinline block: suspend () -> T): T = withContext(
     block()
 }
 
-inline fun <R> resultOf(block: () -> R): Result<R> {
+inline fun <R> getResult(block: () -> R): Result<R> {
     return try {
         Result.success(block())
-    } catch (e: CancellationException) {
-        throw e
     } catch (e: Exception) {
         Result.failure(e)
     }

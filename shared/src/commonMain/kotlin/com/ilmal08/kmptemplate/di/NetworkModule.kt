@@ -1,6 +1,7 @@
 package com.ilmal08.kmptemplate.di
 
 import androidx.compose.ui.text.intl.Locale
+import com.ilmal08.kmptemplate.data.model.response.otherResponse.ErrorResponse
 import com.ilmal08.kmptemplate.data.source.remote.MovieService
 import com.ilmal08.kmptemplate.data.source.remote.impl.MovieServiceImpl
 import com.ilmal08.kmptemplate.util.Constant
@@ -36,12 +37,14 @@ val networkModule = module {
             }
 
             expectSuccess = true
+
             install(HttpTimeout) {
                 val timeout = 30000L
                 connectTimeoutMillis = timeout
                 requestTimeoutMillis = timeout
                 socketTimeoutMillis = timeout
             }
+
             install(Logging) {
                 logger = object : Logger {
                     override fun log(message: String) {
@@ -50,15 +53,25 @@ val networkModule = module {
                 }
                 level = LogLevel.BODY
             }
+
             install(ContentNegotiation) {
                 json(Json {
                     ignoreUnknownKeys = true
                     explicitNulls = false
                 })
             }
+
+        }.also {
+            Napier.base(DebugAntilog())
         }
-    }.also {
-        Napier.base(DebugAntilog())
     }
     single<MovieService> { MovieServiceImpl(get()) }
+}
+
+fun parseErrorResponse(errorResponse: String): ErrorResponse {
+    return Json.decodeFromString(errorResponse)
+}
+
+fun handleErrorResponse(errorResponse: ErrorResponse) {
+    println("Error: ${errorResponse.statusMessage} (Code: ${errorResponse.statusCode})")
 }

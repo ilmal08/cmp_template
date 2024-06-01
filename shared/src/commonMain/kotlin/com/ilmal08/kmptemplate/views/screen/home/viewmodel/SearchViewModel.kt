@@ -58,6 +58,13 @@ class SearchViewModel(
                         _uiState.update { uiState ->
                             uiState.updateData(list = list.map { mapper.map(it) })
                         }
+                    }.onFailure { error ->
+                        _uiState.update { uiState ->
+                            uiState.copy(
+                                isLoading = false,
+                                error = error.message ?: "Unknown error occurred"
+                            )
+                        }
                     }
                 }
         }

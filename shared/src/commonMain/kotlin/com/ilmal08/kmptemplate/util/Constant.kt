@@ -15,4 +15,26 @@ object Constant {
         const val API = "q8M70IIQPeZXwqSrvtCF6OcCKYOPDk9p"
         const val TIMEOUT = 300000L
     }
+
+    object QueryParam {
+        const val MOVIE_QUERY = "query"
+    }
+
+    object EndPoint {
+        const val POPULAR_MOVIE = "movie/popular"
+        const val NOW_PLAYING_MOVIE = "movie/now_playing"
+        const val SEARCH = "search/mov"
+
+        fun similarMovieUrl(movieId: Int): String {
+            return "movie/$movieId/similar"
+        }
+
+        fun creditUrl(id: Int): String {
+            return "movie/$id/credits"
+        }
+
+        fun detailUrl(id: Int): String {
+            return "movie/$id"
+        }
+    }
 }

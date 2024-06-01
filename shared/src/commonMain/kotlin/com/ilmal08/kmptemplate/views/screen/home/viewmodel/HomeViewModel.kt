@@ -20,24 +20,31 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel {
 
     private fun fetchData() {
         viewModelScope.launch {
-            val popularMovieResult = repository.getPopularMovie()
-                .onFailure { data ->
-                    _uiState.update { uiState ->
-                        uiState.copy(
-                            isLoading = false,
-                            error = data.message.toString()
-                        )
-                    }
-                }
-            val nowPlayingMovieResult = repository.getNowPlaying()
-
-            if (popularMovieResult.isSuccess && nowPlayingMovieResult.isSuccess) {
+            repository.getPopularMovie().onFailure { error ->
                 _uiState.update { uiState ->
                     uiState.copy(
                         isLoading = false,
-                        popularMovieData = popularMovieResult.getOrDefault(listOf()),
-                        nowPlayingMovieData = nowPlayingMovieResult.getOrDefault(listOf())
+                        error = error.message ?: "Unknown error occurred"
                     )
+                }
+            }.onSuccess { popularMovies ->
+                val nowPlayingMovieResult = repository.getNowPlaying()
+
+                nowPlayingMovieResult.onSuccess { nowPlayingMovies ->
+                    _uiState.update { uiState ->
+                        uiState.copy(
+                            isLoading = false,
+                            popularMovieData = popularMovies,
+                            nowPlayingMovieData = nowPlayingMovies
+                        )
+                    }
+                }.onFailure { error ->
+                    _uiState.update { uiState ->
+                        uiState.copy(
+                            isLoading = false,
+                            error = error.message ?: "Unknown error occurred"
+                        )
+                    }
                 }
             }
         }
