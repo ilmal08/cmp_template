@@ -23,7 +23,7 @@ object Constant {
     object EndPoint {
         const val POPULAR_MOVIE = "movie/popular"
         const val NOW_PLAYING_MOVIE = "movie/now_playing"
-        const val SEARCH = "search/mov"
+        const val SEARCH = "search/movie"
 
         fun similarMovieUrl(movieId: Int): String {
             return "movie/$movieId/similar"
