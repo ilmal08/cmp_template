@@ -24,11 +24,18 @@ kvault = "1.10.0"
 seiko = "1.5.1"
 desugar_jdk_libs = "2.0.3"
 napier = "2.7.1"
+camera = "1.3.3"
 
 [libraries]
 # android core
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+# camera core
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camera" }
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camera" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camera" }
 
 # compose core
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }

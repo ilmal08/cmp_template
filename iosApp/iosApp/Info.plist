@@ -10,49 +10,40 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>id</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-	<key>CFBundleLocalizations</key><array>
-    <string>en</string>
-    <string>id</string>
-    </array>
-
-    <!-- Camera Permission -->
-    <key>NSCameraUsageDescription</key>
-    <string>This app requires access to the camera to take photos and videos.</string>
-
-    <!-- Location Permission -->
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This app requires access to your location to provide location-based services.</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>This app requires access to your location even when the app is in the background.</string>
-
-    <!-- Photo Library Permission -->
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app requires access to your photo library to select and upload photos.</string>
-
-    <!-- Microphone Permission -->
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This app requires access to the microphone to record audio.</string>
-
-    <!-- Write to Storage (Note: iOS does not have a separate permission for writing to storage, but access to the photo library implies this permission) -->
-    <!-- You may want to combine this with the photo library usage description -->
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>This app requires access to add photos to your photo library.</string>
-
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires access to the camera to take photos and videos.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app requires access to your location even when the app is in the background.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app requires access to your location to provide location-based services.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires access to the microphone to record audio.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app requires access to add photos to your photo library.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to your photo library to select and upload photos.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
+	<key>UILaunchScreen</key>
+	<dict/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -70,7 +61,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UILaunchScreen</key>
-	<dict/>
 </dict>
 </plist>

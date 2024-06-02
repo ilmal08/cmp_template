@@ -18,6 +18,8 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -28,6 +30,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.ilmal08.kmptemplate.permission.Permission
 import com.ilmal08.kmptemplate.permission.isGranted
 import com.ilmal08.kmptemplate.permission.rememberPermissionState
+import com.ilmal08.kmptemplate.util.CameraScreen
 import com.ilmal08.kmptemplate.views.screen.setting.navigator.LegalNavigator
 import dev.icerock.moko.resources.compose.stringResource
 import io.github.aakira.napier.Napier
@@ -42,6 +45,10 @@ fun SettingScreen() {
         val locationPermissionState = rememberPermissionState(Permission.LOCATION)
         val cameraPermissionState = rememberPermissionState(Permission.CAMERA)
         val galeryPermissionState = rememberPermissionState(Permission.GALLERY)
+
+        val launchCamera = remember { mutableStateOf(false) }
+
+        if (launchCamera.value) CameraScreen()
 
         Row(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).clickable {
@@ -75,7 +82,12 @@ fun SettingScreen() {
                     }
                     "Camera" -> {
                         Napier.i("Camera Click ${cameraPermissionState.status.isGranted}")
-                        cameraPermissionState.launchPermissionRequest()
+                        if(cameraPermissionState.status.isGranted) {
+                            launchCamera.value = true
+                        } else {
+                            launchCamera.value = false
+                            cameraPermissionState.launchPermissionRequest()
+                        }
                     }
                     "Galery" -> {
                         Napier.i("Galery Click ${galeryPermissionState.status.isGranted}")
@@ -97,7 +109,10 @@ fun ButtonList(
     ) {
         items(buttonNames) { buttonName ->
             Button(
-                onClick = { onButtonClick(buttonName) },
+                onClick = {
+                    onButtonClick(buttonName)
+
+                },
                 modifier = Modifier
                     .padding(vertical = 8.dp, horizontal = 16.dp)
                     .fillMaxWidth(),
