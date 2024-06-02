@@ -43,7 +43,6 @@ actual fun CameraInterface() {
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             imageCapture = ImageCapture.Builder().build()
             try {
-                cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview, imageCapture)
             } catch (exc: Exception) {
                 // Handle any errors (e.g., display a message to the user)
