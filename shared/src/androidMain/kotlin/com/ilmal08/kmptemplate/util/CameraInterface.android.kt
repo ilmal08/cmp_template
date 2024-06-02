@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 @Composable
-fun CameraInterface() {
+actual fun CameraInterface() {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val cameraProviderFuture = remember { ProcessCameraProvider.getInstance(context) }
