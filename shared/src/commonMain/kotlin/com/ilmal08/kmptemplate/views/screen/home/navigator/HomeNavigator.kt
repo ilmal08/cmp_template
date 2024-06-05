@@ -1,7 +1,6 @@
 package com.ilmal08.kmptemplate.views.screen.home.navigator
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -11,7 +10,7 @@ import com.ilmal08.kmptemplate.views.screen.home.HomeScreen
 import com.ilmal08.kmptemplate.views.screen.home.viewmodel.HomeViewModel
 
 class HomeNavigator(
-    val onNavigator: (isRoot: Boolean) -> Unit
+//    @Transient val onNavigator: (isRoot: Boolean) -> Unit = {}
 ) : Screen {
     @Composable
     override fun Content() {
@@ -19,9 +18,9 @@ class HomeNavigator(
 
         val navigator: Navigator = LocalNavigator.currentOrThrow
 
-        LaunchedEffect(Unit) {
-            onNavigator(navigator.lastItem is HomeNavigator)
-        }
+//        LaunchedEffect(Unit) {
+//            onNavigator(navigator.lastItem is HomeNavigator)
+//        }
 
         HomeScreen(screenModel, navigator)
     }

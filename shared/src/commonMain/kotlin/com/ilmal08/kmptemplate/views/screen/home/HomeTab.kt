@@ -12,13 +12,9 @@ import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.ilmal08.kmptemplate.views.screen.home.navigator.HomeNavigator
 import dev.icerock.moko.resources.compose.stringResource
-import kotlin.jvm.Transient
-
-//import com.ilmal08.kmptemplate.views.screen.home.navigator.HomeNavigator
 
 class HomeTab(
-    @Transient
-    val onNavigator: (isRoot: Boolean) -> Unit
+//    val onNavigator: (isRoot: Boolean) -> Unit
 ) : Tab {
     override val options: TabOptions
         @Composable
@@ -37,8 +33,12 @@ class HomeTab(
 
     @Composable
     override fun Content() {
-        Navigator(screen = HomeNavigator(onNavigator)) { navigator ->
-            onNavigator(navigator.lastItem is HomeNavigator)
+        Navigator(
+            screen = HomeNavigator(
+//                onNavigator
+            )
+        ) { navigator ->
+//            onNavigator(navigator.lastItem is HomeNavigator)
             SlideTransition(navigator = navigator)
         }
     }

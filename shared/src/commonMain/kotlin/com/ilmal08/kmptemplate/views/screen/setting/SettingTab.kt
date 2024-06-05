@@ -12,11 +12,10 @@ import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.ilmal08.kmptemplate.views.screen.setting.navigator.SettingNavigator
 import dev.icerock.moko.resources.compose.stringResource
-import kotlin.jvm.Transient
 
 class SettingsTab(
-    @Transient
-    val onNavigator: (isRoot: Boolean) -> Unit,
+//    @Transient
+//    val onNavigator: (isRoot: Boolean) -> Unit,
 ) : Tab {
 
     override val options: TabOptions
@@ -36,8 +35,12 @@ class SettingsTab(
 
     @Composable
     override fun Content() {
-        Navigator(screen = SettingNavigator(onNavigator)) { navigator ->
-            onNavigator(navigator.lastItem is SettingNavigator)
+        Navigator(
+            screen = SettingNavigator(
+//                onNavigator
+            )
+        ) { navigator ->
+//            onNavigator(navigator.lastItem is SettingNavigator)
             SlideTransition(navigator = navigator)
         }
     }

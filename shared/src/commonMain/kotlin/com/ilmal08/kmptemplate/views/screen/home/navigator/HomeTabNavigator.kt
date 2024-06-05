@@ -38,13 +38,13 @@ class HomeTabNavigator : Screen {
 
         val homeTab = remember {
             HomeTab(
-                onNavigator = { isVisible = it }
+//                onNavigator = { isVisible = it }
             )
         }
 
         val settingsTab = remember {
             SettingsTab(
-                onNavigator = { isVisible = it }
+//                onNavigator = { isVisible = it }
             )
         }
 
@@ -52,11 +52,15 @@ class HomeTabNavigator : Screen {
             Scaffold(
                 modifier = Modifier.windowInsetsPadding(WindowInsets.navigationBars),
                 bottomBar = {
-                    AnimatedVisibility(visible = isVisible, enter = slideInVertically { height ->
-                        height
-                    }, exit = slideOutVertically { height ->
-                        height
-                    }) {
+                    AnimatedVisibility(
+                        visible = isVisible,
+                        enter = slideInVertically { height ->
+                            height
+                        },
+                        exit = slideOutVertically { height ->
+                            height
+                        }
+                    ) {
                         BottomNavigation(
                             backgroundColor = MaterialTheme.colorScheme.primaryContainer
                         ) {
@@ -69,9 +73,11 @@ class HomeTabNavigator : Screen {
                     Box(
                         modifier = Modifier.padding(
                             top = innerPadding.calculateTopPadding(),
-                            bottom = if (isVisible) {innerPadding.calculateBottomPadding() } else 0.dp
+                            bottom = if (isVisible) innerPadding.calculateBottomPadding() else 0.dp
                         )
-                    ) { CurrentTab() }
+                    ) {
+                        CurrentTab()
+                    }
                 },
             )
         }
