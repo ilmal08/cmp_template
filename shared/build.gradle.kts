@@ -86,6 +86,9 @@ kotlin {
                 // local storage
                 implementation(libs.local.storage.multi.platform)
                 implementation(libs.local.storage.multi.platform.noarg)
+
+                // encoding utils
+                implementation(libs.encoding.utils)
             }
         }
 

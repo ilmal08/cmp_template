@@ -25,6 +25,7 @@ seiko = "1.5.1"
 desugar_jdk_libs = "2.0.3"
 napier = "2.7.1"
 camera = "1.3.3"
+diglolEncoding = "0.3.0"
 
 [libraries]
 # android core
@@ -84,6 +85,9 @@ moko-resources-compose = { module = "dev.icerock.moko:resources-compose", versio
 
 # lib window manager for multi platform windows
 skiko = { module = "org.jetbrains.skiko:skiko", version.ref = "skiko" }
+
+# encoding
+encoding-utils = { module = "com.diglol.encoding:encoding", version.ref = "diglolEncoding"}
 
 # voyager (navigation)
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }

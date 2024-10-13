@@ -116,7 +116,8 @@ fun SettingScreen(
             })
         }
 
-        ProfileCard(imageBitmap = imageBitmap,
+        ProfileCard(
+            imageBitmap = imageBitmap,
             fullName = "John Doel",
             email = "john_doel@email.com",
             phoneNumber = "+6969876543210",
@@ -239,6 +240,7 @@ fun ProfilePicBox(
                 contentScale = ContentScale.Crop
             )
         } else {
+
             Image(
                 bitmap = imageBitmap,
                 modifier = Modifier.size(100.dp).clip(CircleShape),
