@@ -35,7 +35,7 @@ Briefly describe your project, its purpose, and what problem it solves.
     ```bash
     cd yourproject
 
-## Screen Shoot
+## Screenshots
 <img width="838" alt="Screenshot 2024-10-13 at 18 24 53" src="https://github.com/user-attachments/assets/5e1e79d2-0d4c-4026-8b4c-a812b7f54741">
 <img width="838" alt="Screenshot 2024-10-13 at 18 25 07" src="https://github.com/user-attachments/assets/ce6bc000-13fc-4d61-a9b2-059bcb0401c9">
 <img width="838" alt="Screenshot 2024-10-13 at 18 30 23" src="https://github.com/user-attachments/assets/4c6ec989-bb1e-4ac9-a3ba-8747ad78beff">
